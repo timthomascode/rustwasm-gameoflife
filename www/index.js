@@ -109,6 +109,14 @@ clearButton.addEventListener("click", event => {
     drawCells();
 });
 
+const resetButton = document.getElementById("reset");
+
+resetButton.addEventListener("click", event => {
+    pause();
+    universe.reset();
+    drawCells();
+});
+
 const drawGrid = () => {
     ctx.beginPath();
     ctx.strokeStyle = GRID_COLOR;

@@ -223,6 +223,18 @@ impl Universe {
         self.cells[idx].toggle();
     }
 
+    pub fn reset(&mut self) {
+        self.cells = (0..self.width * self.height)
+            .map(|i| {
+                if i % 2 == 0 || i % 7 == 0 {
+                    Cell::Alive
+                } else {
+                    Cell::Dead
+                }
+            })
+            .collect();
+    }
+
     pub fn clear_all(&mut self) {
         for row in 0..self.height {
             for column in 0..self.width {
