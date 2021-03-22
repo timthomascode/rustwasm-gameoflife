@@ -1,7 +1,7 @@
 import { Universe, Cell } from "rustwasm-gameoflife";
 import { memory } from "rustwasm-gameoflife/rustwasm_gameoflife_bg";
 
-const CELL_SIZE = 5; // px
+const CELL_SIZE = 17; // px
 const GRID_COLOR = "#CCCCCC";
 const DEAD_COLOR = "#FFFFFF";
 const ALIVE_COLOR = "#000000";
