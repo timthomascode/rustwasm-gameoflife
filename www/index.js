@@ -101,6 +101,14 @@ playPauseButton.addEventListener("click", event => {
     }
 });
 
+const clearButton = document.getElementById("clear");
+
+clearButton.addEventListener("click", event => {
+    pause();
+    universe.clear_all();
+    drawCells();
+});
+
 const drawGrid = () => {
     ctx.beginPath();
     ctx.strokeStyle = GRID_COLOR;

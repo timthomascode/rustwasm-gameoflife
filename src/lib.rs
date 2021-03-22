@@ -39,6 +39,13 @@ impl Cell {
             Cell::Alive => Cell::Dead,
         };
     }
+
+    fn clear(&mut self) {
+        *self = match *self {
+            Cell::Alive => Cell::Dead,
+            Cell::Dead => Cell::Dead,
+        }   
+    }
 }
 
 #[wasm_bindgen]
@@ -214,6 +221,15 @@ impl Universe {
     pub fn toggle_cell(&mut self, row: u32, column: u32) {
         let idx = self.get_index(row, column);
         self.cells[idx].toggle();
+    }
+
+    pub fn clear_all(&mut self) {
+        for row in 0..self.height {
+            for column in 0..self.width {
+                let idx = self.get_index(row, column);
+                self.cells[idx].clear();
+            }
+        }
     }
 }
 
