@@ -70,11 +70,9 @@ const renderLoop = () => {
     drawGrid();
     drawCells();
 
-    for (let i = 0; i < 9; i++) {
-        universe.tick();
-    }
+    universe.tick();
 
-    animationId = requestAnimationFrame(renderLoop);
+    animationId = setTimeout(renderLoop, 1000);
 };
 
 const isPaused = () => {
@@ -90,8 +88,9 @@ const play = () => {
 
 const pause = () => {
     playPauseButton.textContent = "▶";
-    cancelAnimationFrame(animationId);
+    clearTimeout(animationId);
     animationId = null;
+    drawCells();
 };
 
 playPauseButton.addEventListener("click", event => {
